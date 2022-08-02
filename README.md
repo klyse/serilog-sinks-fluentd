@@ -4,7 +4,7 @@ A Sink that writes logs into Fluentd
 ## Installation
 This sink is distributed via NuGet package. Install it by running
 ```
-Install-Package Serilog.Sinks.Fluentd
+Install-Package Serilog.Sinks.Fluentd.Revived
 ``` 
 
 ## Usage
