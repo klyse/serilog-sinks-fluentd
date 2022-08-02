@@ -10,7 +10,7 @@ namespace Serilog.Sinks.Fluentd
         public string Tag { get; set; }
 
         [Key(1)]
-        public ulong Timestamp { get; set; }
+        public double Timestamp { get; set; }
 
         [Key(2)]
         public IDictionary<string, object> Data { get; set; }

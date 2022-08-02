@@ -23,7 +23,7 @@ namespace Serilog.Sinks.Fluentd
                 new FluentdMessage
                 {
                     Tag = tag,
-                    Timestamp = (ulong)timestamp.ToUniversalTime().Subtract(UnixEpoch).Ticks / 10000000,
+                    Timestamp = (double)timestamp.ToUniversalTime().Subtract(UnixEpoch).Ticks / 10000000,
                     Data = data,
                 });
         }
