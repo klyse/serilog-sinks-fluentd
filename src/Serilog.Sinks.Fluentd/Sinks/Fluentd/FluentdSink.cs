@@ -1,11 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Serilog.Events;
 using Serilog.Sinks.PeriodicBatching;
 
 namespace Serilog.Sinks.Fluentd
 {
-    public class FluentdSink : IBatchedLogEventSink
+    public class FluentdSink : IBatchedLogEventSink, IDisposable
     {
         private readonly FluentdSinkClient _fluentdClient;
 
@@ -25,6 +26,11 @@ namespace Serilog.Sinks.Fluentd
             {
                 await _fluentdClient.SendAsync(logEvent);
             }
+        }
+
+        public void Dispose()
+        {
+            _fluentdClient?.Dispose();
         }
     }
 }
