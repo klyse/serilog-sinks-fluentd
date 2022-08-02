@@ -1,28 +1,36 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<RootNamespace>Serilog</RootNamespace>
+		<PackRelease>true</PackRelease>
+	</PropertyGroup>
 
-  <PropertyGroup>
-    <Authors>Borys Iermakov</Authors>
-    <AssemblyTitle>Serilog.Sinks.Fluentd</AssemblyTitle>
-    <PackageReleaseNotes>0.4.0</PackageReleaseNotes>
-    <NeutralLanguage>en-US</NeutralLanguage>
-    <Description>
-      Serilog adapter for Fluentd
-    </Description>
-    <PackageLicenseUrl>http://www.apache.org/licenses/LICENSE-2.0</PackageLicenseUrl>
-    <PackageTags>serilog;fluentd;sink;sinks;serilog sinks;serilog sink</PackageTags>
-    <PackageIconUrl>http://serilog.net/images/serilog-sink-nuget.png</PackageIconUrl>
-    <RepositoryUrl>https://github.com/borisermakof/serilog-sinks-fluentd</RepositoryUrl>
-    <PackageProjectUrl>https://serilog.net/</PackageProjectUrl>
-  </PropertyGroup>
-  
-  <ItemGroup>
-    <PackageReference Include="MessagePack" Version="2.3.85" />
-    <PackageReference Include="Serilog" Version="2.0.0" />
-    <PackageReference Include="Serilog.Sinks.PeriodicBatching" Version="2.2.0" />
-  </ItemGroup>
+	<PropertyGroup>
+		<Authors>Borys Iermakov, Koichi Tanaka, Klyse</Authors>
+		<Title>Serilog.Sinks.Fluentd.v2</Title>
+		<Description>
+			Serilog adapter for Fluentd.
+			Maintained fork of https://github.com/borisermakof/serilog-sinks-fluentd
+		</Description>
+		<PackageId>Serilog.Sinks.Fluentd.Revived</PackageId>
+		<Version>0.5.0</Version>
+		<DefaultLanguage>en-US</DefaultLanguage>
+		<PackageLicenseUrl>http://www.apache.org/licenses/LICENSE-2.0</PackageLicenseUrl>
+		<PackageTags>serilog;fluentd;sink;sinks;serilog sinks;serilog sink</PackageTags>
+		<PackageIcon>serilog-sink-nuget.png</PackageIcon>
+		<RepositoryUrl>https://github.com/klyse/serilog-sinks-fluentd</RepositoryUrl>
+		<PackageProjectUrl>https://serilog.net/</PackageProjectUrl>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="MessagePack" Version="2.4.35" />
+		<PackageReference Include="Serilog" Version="2.11.0" />
+		<PackageReference Include="Serilog.Sinks.PeriodicBatching" Version="2.3.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Include="serilog-sink-nuget.png" Pack="true" PackagePath="\" />
+	</ItemGroup>
 
 </Project>
