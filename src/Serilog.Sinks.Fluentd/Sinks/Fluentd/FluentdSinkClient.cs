@@ -108,7 +108,7 @@ namespace Serilog.Sinks.Fluentd
             {
                 try
                 {
-                    await _emitter.EmitAsync(logEvent.Timestamp.UtcDateTime, _options.Tag, record);
+                    await _emitter.EmitAsync(logEvent.Timestamp, _options.Tag, record);
                 }
                 catch (Exception ex)
                 {
