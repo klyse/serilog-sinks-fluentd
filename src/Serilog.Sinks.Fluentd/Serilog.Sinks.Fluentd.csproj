@@ -16,7 +16,7 @@
 		<PackageId>Serilog.Sinks.Fluentd.Revived</PackageId>
 		<Version>0.6.1</Version>
 		<DefaultLanguage>en-US</DefaultLanguage>
-		<PackageLicenseUrl>http://www.apache.org/licenses/LICENSE-2.0</PackageLicenseUrl>
+		<PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
 		<PackageTags>serilog;fluentd;sink;sinks;serilog sinks;serilog sink</PackageTags>
 		<PackageIcon>serilog-sink-nuget.png</PackageIcon>
 		<RepositoryUrl>https://github.com/klyse/serilog-sinks-fluentd</RepositoryUrl>
