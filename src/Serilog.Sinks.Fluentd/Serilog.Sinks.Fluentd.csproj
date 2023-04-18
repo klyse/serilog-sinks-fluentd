@@ -14,7 +14,7 @@
 			Maintained fork of https://github.com/borisermakof/serilog-sinks-fluentd
 		</Description>
 		<PackageId>Serilog.Sinks.Fluentd.Revived</PackageId>
-		<Version>0.6.1</Version>
+		<Version>0.7.0</Version>
 		<DefaultLanguage>en-US</DefaultLanguage>
 		<PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
 		<PackageTags>serilog;fluentd;sink;sinks;serilog sinks;serilog sink</PackageTags>
