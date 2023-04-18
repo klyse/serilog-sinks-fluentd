@@ -1,8 +1,9 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using MessagePack;
+using MessagePack.Resolvers;
 
 namespace Serilog.Sinks.Fluentd
 {
@@ -12,19 +13,36 @@ namespace Serilog.Sinks.Fluentd
 
         public FluentdEmitter(Stream stream)
         {
-            this._output = stream;
+            _output = stream;
+
+            var resolver = CompositeResolver.Create(
+                // enable extension packages first
+                CustomResolver.Instance,
+                // finally use standard (default) resolver
+                StandardResolver.Instance
+            );
+
+            _options = MessagePackSerializerOptions
+                .Standard
+                .WithResolver(resolver);
         }
+
+        private readonly MessagePackSerializerOptions _options;
 
         public async Task EmitAsync(DateTimeOffset timestamp, string tag, IDictionary<string, object> data)
         {
             await MessagePackSerializer.SerializeAsync(
-                this._output,
+                _output,
                 new FluentdMessage
                 {
                     Tag = tag,
-                    Timestamp = timestamp.ToUnixTimeMilliseconds() / 1000d,
-                    Data = data,
-                });
+                    Time = new FluentdMessage.EventTime
+                    {
+                        Nanoseconds = timestamp.Millisecond * 1_000_000,
+                        Seconds = (int)timestamp.ToUnixTimeSeconds()
+                    },
+                    Record = data,
+                }, _options);
         }
     }
 }
