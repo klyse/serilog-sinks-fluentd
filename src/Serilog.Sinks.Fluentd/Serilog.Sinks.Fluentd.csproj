@@ -4,6 +4,7 @@
 		<TargetFramework>netstandard2.0</TargetFramework>
 		<RootNamespace>Serilog</RootNamespace>
 		<PackRelease>true</PackRelease>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	</PropertyGroup>
 
 	<PropertyGroup>
@@ -14,7 +15,7 @@
 			Maintained fork of https://github.com/borisermakof/serilog-sinks-fluentd
 		</Description>
 		<PackageId>Serilog.Sinks.Fluentd.Revived</PackageId>
-		<Version>0.8.0</Version>
+		<Version>0.9.0</Version>
 		<DefaultLanguage>en-US</DefaultLanguage>
 		<PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
 		<PackageTags>serilog;fluentd;sink;sinks;serilog sinks;serilog sink</PackageTags>
@@ -24,8 +25,8 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="MessagePack" Version="2.5.171" />
-		<PackageReference Include="Serilog" Version="4.0.1" />
+		<PackageReference Include="MessagePack" Version="2.5.192" />
+		<PackageReference Include="Serilog" Version="4.1.0" />
 		<PackageReference Include="Serilog.Sinks.PeriodicBatching" Version="5.0.0" />
 	</ItemGroup>
 
