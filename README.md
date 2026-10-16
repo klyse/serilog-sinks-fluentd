@@ -51,3 +51,11 @@ var log = new LoggerConfiguration().MinimumLevel.Verbose().WriteTo.Fluentd("/var
 FluentdSinkOptions sinkOptions = new FluentdSinkOptions("/var/run/fluentd/fluentd.sock");
 var log = new LoggerConfiguration().WriteTo.Fluentd(sinkOptions).CreateLogger();
 ```
+## Local testing
+A Fluentd instance for the `TestClient` is provided via Docker. It listens on `localhost:24224` and prints every received event to stdout:
+```
+docker compose up -d
+dotnet run --project TestClient
+docker compose logs -f fluentd
+```
+Set `FLUENTD_HOST` / `FLUENTD_PORT` to point the TestClient at a different Fluentd instance.

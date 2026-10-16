@@ -1,0 +1,9 @@
+services:
+  fluentd:
+    image: fluent/fluentd:v1.17-debian-1
+    container_name: serilog-fluentd
+    ports:
+      - "24224:24224"
+      - "24224:24224/udp"
+    volumes:
+      - ./fluentd/fluent.conf:/fluentd/etc/fluent.conf:ro

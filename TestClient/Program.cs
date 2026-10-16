@@ -1,8 +1,12 @@
 ﻿using Serilog;
 Console.WriteLine("Hello, World!");
 
+Serilog.Debugging.SelfLog.Enable(Console.Error);
+
 Log.Logger = new LoggerConfiguration()
-    .WriteTo.Fluentd(host: "192.168.178.30", port: 1996)
+    .WriteTo.Fluentd(
+        host: Environment.GetEnvironmentVariable("FLUENTD_HOST") ?? "localhost",
+        port: int.Parse(Environment.GetEnvironmentVariable("FLUENTD_PORT") ?? "24224"))
     .WriteTo.Console()
     .CreateLogger();
 
